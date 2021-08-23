@@ -23,3 +23,5 @@
   ```django==3.2```
 * Install <br>
   ```pip install -r requirements.txt```
+* Check packages and versions installed in the virtual environment <br>
+  ```pip freeze```
