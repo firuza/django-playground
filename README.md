@@ -18,3 +18,8 @@
 * Deactivate: <br>
    ```deactivate```
 
+## Install Django
+* Create requirements.txt  <br>
+  ```django==3.2```
+* Install <br>
+  ```pip install -r requirements.txt```
