@@ -3,14 +3,14 @@
 ## python pip
 
 * Install: <br>
-   ```python3 -m pip install --user --upgrade pip```
+   ```sudo apt-get install python3-pip```
 * Check version: <br>
   ```python3 -m pip --version```
 
 ## Virtual environment
 
 * Install: <br>
-   ```python3 -m pip install --user virtualenv```
+   ```sudo apt-get install python3-venv```
 * Create: <br>
    ```python3 -m venv env```
 * Activate: <br>
