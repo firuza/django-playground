@@ -30,3 +30,5 @@
 * Migrate and Start <br>
   * ```python manage.py migrate```
   * ```python manage.py runserver```
+  * Browse site: ```http://localhost:8000```
+  * Browse django admin: ```http://localhost:8000/admin/```
