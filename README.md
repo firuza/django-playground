@@ -27,3 +27,6 @@
   ```pip freeze```
 * Create Django Project <br>
   ```django-admin startproject playground```
+* Migrate and Start <br>
+  * ```python manage.py migrate```
+  * ```python manage.py runserver```
