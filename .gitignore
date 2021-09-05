@@ -1,2 +1,4 @@
 playground/db.sqlite3
 playground/playground/__pycache__/
+playground/polls/__pycache__/
+playground/polls/migrations/__pycache__/
