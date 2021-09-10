@@ -1,7 +1,7 @@
 import datetime
 from django.test import TestCase
 from django.utils import timezone
-from .models import Question
+from .models import Question, Choice
 from django.urls import reverse
 
 class QuestionModelTests(TestCase):
@@ -52,8 +52,9 @@ class QuestionIndexViewTests(TestCase):
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
-    def test_past_questions(self):
+    def test_past_questions_with_choices(self):
         question = create_question(question_text="Past question.", days=-30)
+        Choice.objects.create(question=question, choice_text="choice for question", votes=0)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'], [question]
@@ -65,17 +66,20 @@ class QuestionIndexViewTests(TestCase):
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
-    def test_future_past_questions(self):
+    def test_future_past_questions_with_choices(self):
         question = create_question(question_text="Past question", days=-30)
+        Choice.objects.create(question=question, choice_text="choice for question", votes=0)
         create_question(question_text="Future question", days=30)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'], [question]
         )
 
-    def test_multiple_past_questions(self):
+    def test_multiple_past_questions_with_choices(self):
         q1 = create_question(question_text="Past question 1", days=-30)
+        Choice.objects.create(question=q1, choice_text="choice for q1", votes=0)
         q2 = create_question(question_text="Past question 2", days=-5)
+        Choice.objects.create(question=q2, choice_text="choice for q2", votes=0)
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'], [q2, q1]
