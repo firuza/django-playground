@@ -82,6 +82,14 @@ class QuestionIndexViewTests(TestCase):
             response.context['latest_question_list'], [question]
         )
 
+    def test_future_past_questions_no_choices(self):
+        question = create_question(question_text="Past question", days=-30)
+        create_question(question_text="Future question", days=30)
+        response = self.client.get(reverse('polls:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_question_list'], []
+        )
+
     def test_multiple_past_questions_with_choices(self):
         q1 = create_question(question_text="Past question 1", days=-30)
         Choice.objects.create(question=q1, choice_text="choice for q1", votes=0)
@@ -90,6 +98,14 @@ class QuestionIndexViewTests(TestCase):
         response = self.client.get(reverse('polls:index'))
         self.assertQuerysetEqual(
             response.context['latest_question_list'], [q2, q1]
+        )
+
+    def test_multiple_past_questions_no_choices(self):
+        q1 = create_question(question_text="Past question 1", days=-30)
+        q2 = create_question(question_text="Past question 2", days=-5)
+        response = self.client.get(reverse('polls:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_question_list'], []
         )
 
 class QuestionDetailViewTests(TestCase):
