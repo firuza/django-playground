@@ -1,5 +1,7 @@
 # django-playground
 
+[![CodeFactor](https://www.codefactor.io/repository/github/firuza/django-playground/badge)](https://www.codefactor.io/repository/github/firuza/django-playground)
+
 ## python pip
 
 * Install: <br>
