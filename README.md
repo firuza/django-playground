@@ -1,4 +1,6 @@
-# django-playground
+![django-playground](https://socialify.git.ci/firuza/django-playground/image?description=1&descriptionEditable=experimenting%20with%20django&font=Bitter&language=1&pattern=Charlie%20Brown&theme=Dark)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/firuza/django-playground/badge)](https://www.codefactor.io/repository/github/firuza/django-playground)
 
 ## python pip
 
